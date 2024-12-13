@@ -1,3 +1,33 @@
+"""
+Web Crawling, PDF Extraction, and Text Embedding Pipeline
+
+This script implements a comprehensive pipeline to crawl a specified website, extract content and downloadable files,
+process PDF documents through OCR and text extraction, structure the content using GPT-4, and generate text embeddings
+for further analysis or retrieval. The pipeline is modular, consisting of the following main components:
+
+1. **WebCrawler**: Navigates through the target website, respecting configured depth, language patterns, and path exclusions.
+   It extracts URLs, downloads files (PDFs, images, documents), and saves page content in Markdown format.
+
+2. **PDFExtractor**: Converts downloaded PDF files into images, performs OCR to extract text, cleans and structures the content using
+   GPT-4, and saves the processed text for embedding.
+
+3. **EmbeddingProcessor**: Processes the extracted text by chunking, contextualizing the chunks with GPT-4, and generating
+   embeddings using OpenAI's Embedding API. The embeddings are saved for use in applications like semantic search or analysis.
+
+4. **IntegrationManager**: Orchestrates the entire workflow by initializing and coordinating the above components based on
+   configuration settings.
+
+The script includes robust logging, error handling, and progress indicators to manage and monitor the pipeline execution.
+
+**Usage**: Configure the `config` dictionary with appropriate settings, ensure the required API keys are available,
+and execute the script to perform the crawling, extraction, and embedding processes.
+
+**Dependencies**: Requires various libraries including `requests`, `BeautifulSoup`, `playwright`, `pytesseract`,
+`pdf2image`, `pypdf`, `html2text`, `colorama`, `tqdm`, `rich`, and OpenAI's APIs.
+
+**Requirements**: Ensure that Tesseract-OCR is installed and properly configured on the system, and that Playwright
+is installed and its browsers are set up if `use_playwright` is enabled.
+"""
 import os
 import re
 import json
