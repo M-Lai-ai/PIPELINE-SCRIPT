@@ -1,0 +1,14 @@
+requests
+beautifulsoup4
+playwright
+colorama
+tqdm
+html2text
+pytesseract
+pdf2image
+numpy
+opencv-python
+Pillow
+pypdf
+rich
+python-dotenv
